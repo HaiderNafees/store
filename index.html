@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocofy - Fresh Groceries Delivered</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">Grocofy</a>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#featured">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <div class="search-box">
+                    <input type="text" placeholder="Search products...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="auth/login.html" class="user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Shopping Cart</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems" class="cart-items">
+                    <!-- Cart items will be dynamically inserted here -->
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                        <a href="#featured" class="cta-button">Continue Shopping</a>
+                    </div>
+                </div>
+                <div class="cart-summary">
+                    <div class="cart-total">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotal">$0.00</span>
+                    </div>
+                    <button id="checkoutBtn" class="checkout-btn" disabled>Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Fresh Groceries Delivered to Your Doorstep</h1>
+            <p>Get the best quality fruits, vegetables, and more at amazing prices</p>
+            <a href="#featured" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fresh Fruits">
+                <h3>Fresh Fruits</h3>
+                <p>Premium quality fruits from local farms</p>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1592924357232-7a3c5a5c5c5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fresh Vegetables">
+                <h3>Vegetables</h3>
+                <p>Farm-fresh vegetables delivered daily</p>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dairy Products">
+                <h3>Dairy Products</h3>
+                <p>Fresh milk, cheese, and dairy essentials</p>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1546823312-2d5b5b8c2e5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Meat & Poultry">
+                <h3>Meat & Poultry</h3>
+                <p>Premium cuts of meat and fresh poultry</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="featured" class="products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            
+            <!-- Product Level Filter -->
+            <div class="product-filter">
+                <button class="filter-btn active" data-level="all">All Products</button>
+                <button class="filter-btn" data-level="basic">Basic</button>
+                <button class="filter-btn" data-level="intermediate">Intermediate</button>
+                <button class="filter-btn" data-level="advanced">Advanced</button>
+                <button class="filter-btn" data-level="premium">Premium</button>
+            </div>
+            
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically added here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2>Why Choose Grocofy?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your groceries delivered within 2 hours</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>100% Fresh</h3>
+                    <p>All our products are sourced directly from farms</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Best Prices</h3>
+                    <p>Competitive prices with regular discounts</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Quality Assured</h3>
+                    <p>Quality checked products with money-back guarantee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Grocofy has completely changed how I shop for groceries. Fresh, fast, and affordable!"</p>
+                    <div class="customer-info">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Customer">
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <span>Regular Customer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The quality of produce is exceptional. I love supporting local farmers through Grocofy."</p>
+                    <div class="customer-info">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Customer">
+                        <div>
+                            <h4>Mike Chen</h4>
+                            <span>Health Conscious Shopper</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Super convenient app and amazing customer service. Highly recommend!"</p>
+                    <div class="customer-info">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Customer">
+                        <div>
+                            <h4>Emily Davis</h4>
+                            <span>Busy Mom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>About Grocofy</h2>
+            <p>We are committed to providing the freshest and highest quality groceries delivered right to your doorstep. Our mission is to make grocery shopping convenient and hassle-free.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Grocofy</h3>
+                <p>Your trusted partner for fresh groceries delivered right to your doorstep. We source the best quality products from local farms and trusted suppliers.</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#featured">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Fresh Produce</a></li>
+                    <li><a href="#">Dairy Products</a></li>
+                    <li><a href="#">Meat & Poultry</a></li>
+                    <li><a href="#">Bakery Items</a></li>
+                    <li><a href="#">Same Day Delivery</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@grocofy.com</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Grocery St, Foodie City, FC 12345</p>
+                <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-8PM, Sun: 9AM-6PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Grocofy. All rights reserved. Made with <i class="fas fa-heart" style="color: #F28A1A;"></i> for fresh grocery lovers.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
